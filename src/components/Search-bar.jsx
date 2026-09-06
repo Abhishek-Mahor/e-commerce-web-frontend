@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
-const Searchbar = () => {
+const Searchbar = ({className}) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const initialQuery = searchParams.get('search') || '';
@@ -31,10 +31,10 @@ const Searchbar = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className='flex border border-gray-300 shadow-sm rounded-lg  bg-white overflow-hidden max-w-sm w-full'>
+    <form onSubmit={handleSearch} className='flex  shadow-sm rounded-full  bg-white overflow-hidden max-w-sm w-full'>
       <input 
-        className='px-4 py-1.5 rounded-l-lg w-full border-none focus:outline-none text-sm' 
-        placeholder='Search products...' 
+        className={`${className} lg:w-80 lg:h-8 px-4 py-1.5 h-7  w-40 border-none focus:outline-none text-sm`} 
+        placeholder='    Search products...' 
         type="text" 
         value={query}
         onChange={handleInputChange}

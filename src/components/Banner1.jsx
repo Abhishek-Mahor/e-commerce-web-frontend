@@ -7,7 +7,7 @@ const Banner1 = ({ classname = "" }) => {
       <div className=''>
           
 
-          <h1 className='text-5xl font-bold text-white text-center pt-20 w-70 ml-5 mt-20 drop-shadow'>Welcome to our online store!</h1>
+          <h1 className='text-3xl font-bold text-white text- pt-20 w-50 ml-5 mt-20 drop-shadow '>Welcome to our online store!</h1>
           
       </div>
         
