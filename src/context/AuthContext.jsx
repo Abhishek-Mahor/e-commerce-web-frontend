@@ -6,8 +6,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // You can add logic here to check if the user is already logged in
-  // e.g., checking localStorage or making an API call to verify a token
+
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -23,8 +22,13 @@ export const AuthProvider = ({ children }) => {
     setIsSidebarOpen((prev) => !prev);
   };
 
+  const value = React.useMemo(
+    () => ({ user, setUser, isSidebarOpen, setIsSidebarOpen, toggleSidebar }),
+    [user,isSidebarOpen]
+  );
+
   return (
-    <AuthContext.Provider value={{ user, setUser, isSidebarOpen, setIsSidebarOpen, toggleSidebar }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );

@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
       });
       setCart(response.data);
     } catch (error) {
-      
+
       if (error.response?.status === 401) {
         setUser(null);
         localStorage.removeItem('user');
@@ -110,8 +110,13 @@ export const CartProvider = ({ children }) => {
 
   const cartCount = cart.items.reduce((total, item) => total + item.quantity, 0);
 
+  const value = React.useMemo(
+    () => ({ cart, cartCount, loading, addToCart, updateQuantity, removeFromCart, fetchCart }),
+    [cart, cartCount, loading]
+  );
+
   return (
-    <CartContext.Provider value={{ cart, cartCount, loading, addToCart, updateQuantity, removeFromCart, fetchCart }}>
+    <CartContext.Provider value={value}>
       {children}
     </CartContext.Provider>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
-const Searchbar = ({className}) => {
+const Searchbar = ({ className }) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const initialQuery = searchParams.get('search') || '';
@@ -14,28 +14,28 @@ const Searchbar = ({className}) => {
   const handleInputChange = (e) => {
     const val = e.target.value;
     setQuery(val);
-    
+
     // Update the search param immediately as they type
     if (val.trim()) {
       navigate(`/?search=${encodeURIComponent(val.trim())}`, { replace: true });
     } else {
       navigate('/', { replace: true });
     }
-    
+
   };
 
 
-    //page reload block
+  //page reload block
   const handleSearch = (e) => {
     e.preventDefault();
   };
 
   return (
     <form onSubmit={handleSearch} className='flex  shadow-sm rounded-full  bg-white overflow-hidden max-w-sm w-full'>
-      <input 
-        className={`${className} lg:w-80 lg:h-8 px-4 py-1.5 h-7  w-40 border-none focus:outline-none  text-base`} 
-        placeholder='    Search products...' 
-        type="text" 
+      <input
+        className={`${className} lg:w-80 lg:h-8 px-4 py-1.5 h-7  w-40 border-none focus:outline-none  text-base`}
+        placeholder='    Search products...'
+        type="text"
         value={query}
         onChange={handleInputChange}
       />

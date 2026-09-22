@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
-import Searchbar from './Search-bar'
-import { Link, useNavigate } from 'react-router-dom'
-import { CartContext } from '../context/CartContext'
-import { AuthContext } from '../context/AuthContext'
-import Sidebar from './Sidebar'
+import React, { useContext } from 'react';
+import Searchbar from './Search-bar';
+import { Link, useNavigate } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
+import { AuthContext } from '../context/AuthContext';
+import Sidebar from './Sidebar';
 
 
-const Header = () => {
+const Header = React.memo(() => {
   const navigate = useNavigate();
-  const { cartCount } = useContext(CartContext)
+  const { cartCount } = useContext(CartContext);
   const { user, toggleSidebar, isSidebarOpen } = useContext(AuthContext);
 
   const handleToggle = () => {
@@ -78,6 +78,6 @@ const Header = () => {
 
     </div>
   )
-}
+});
 
-export default Header
+export default Header;
