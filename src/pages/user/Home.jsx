@@ -45,12 +45,12 @@ const Home = () => {
   });
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       <Banner
        imagesrc={bannerImage}
-       classname={'h-150 shadow'}
-       textclassName={'text-white font-fancy text-3xl relative left-200 top-15'} />
+       classname={'h-150 shadow overflow-hidden'}
+       textclassName={'text-white font-fancy text-3xl ml-5 mt-10'} />
 
       {search && (
         <div className='max-w-6xl mx-auto px-4 mt-6 flex justify-between items-center bg-gray-50 border p-3 rounded-lg'>

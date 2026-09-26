@@ -1,11 +1,10 @@
 
 
 
-const Banner = ({ classname = '', imagesrc = '',textclassName='' }) => {
+const Banner = ({ classname = '', imagesrc = '', textclassName = '' }) => {
   return (
     <div
-      className={`w-full border border-none  ${classname}`}
-      
+      className={`w-full overflow-hidden border border-none ${classname}`}
       style={{
         backgroundImage: imagesrc ? `url(${imagesrc})` : 'none',
         backgroundSize: 'cover',
@@ -15,7 +14,6 @@ const Banner = ({ classname = '', imagesrc = '',textclassName='' }) => {
       }}
     >
       <h1 className={textclassName}>welcome our store</h1>
-     
     </div>
   )
 }
