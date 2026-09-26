@@ -2,16 +2,16 @@
 
 const Footer = () => {
   return (
-    <div className='bg-white w-screen h-20 flex justify-around items-center mt-50'>
+    <div className='bg-red-800 w-full h-20 flex justify-around items-center mt-50'>
 
       <nav>
-        <ul className='flex gap-5 mx-5 text-gray-600'>
+        <ul className='flex gap-5 mx-5 text-black-600 font-medium'>
           <li><a href='/about'>Term</a></li>
           <li><a href='/contact'>Contact</a></li>
         </ul>
       </nav>
       
-      <h6 className='text-gray-500 text-sm'>© 2023 Your Company. All rights reserved.</h6>
+      <h6 className='text-black-500 text-sm font-medium'>© 2023 Your Company. All rights reserved.</h6>
 
     </div>
   )

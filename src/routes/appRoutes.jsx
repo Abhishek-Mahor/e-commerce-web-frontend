@@ -1,16 +1,20 @@
 
 import { Routes, Route } from 'react-router-dom'
+import React from 'react'
+
 import Home from '../pages/user/Home'
 import ProductDetailed from '../pages/user/ProductDetailed'
 import Cart from '../pages/user/Cart'
-import Signin from '../pages/user/Signin'
-import Signup from '../pages/user/Signup'
-import AdminLogin from '../pages/admin/AdminLogin'
-import Dashboard from '../pages/admin/Dashboard'
+const Signin = React.lazy(()=> import('../pages/user/Signin'));
+const Signup = React.lazy(()=> import('../pages/user/Signup'));
 import Checkout from '../pages/user/Checkout'
 import OrderSuccess from '../pages/user/OrderSuccess'
 import Orders from '../pages/user/Orders'
 import AIStylist from '../pages/user/AIStylist'
+
+
+const AdminLogin = React.lazy(()=> import('../pages/admin/AdminLogin'));
+const Dashboard = React.lazy(()=> import('../pages/admin/Dashboard'));
 
 const AppRoutes = () => {
   return (

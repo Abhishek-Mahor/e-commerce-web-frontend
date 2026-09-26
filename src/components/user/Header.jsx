@@ -21,7 +21,7 @@ const Header = React.memo(() => {
   };
 
   return (
-    <div className='w-screen h-20 bg-white flex items-center justify-between '>
+    <div className='w-full z-10 sticky top-0 shadow-2xl h-20 bg-red-800 flex items-center justify-between '>
       <h1 className='text-black mx-5 text-2xl'>logo</h1>
       <div className='lg:flex lg:gap-80'>
 
@@ -30,7 +30,7 @@ const Header = React.memo(() => {
         </div>
 
         <nav className='lg:mt-5'>
-          <ul className='flex gap-5 mx-4 text-gray-600 text-sm font-semibold'>
+          <ul className='flex gap-5 mx-4 text-black-900 text-sm font-bold'>
             <li><Link to='/' className='hover:underline hover:text-black transition'>Collection</Link></li>
             <li><Link to='/ai-stylist' className='hover:underline hover:text-black transition'>AI Stylist</Link></li>
           </ul>
@@ -43,7 +43,7 @@ const Header = React.memo(() => {
       <div className=''>
 
         <nav className='mr-3'>
-          <ul className='flex gap-2  text-gray-600 text-sm '>
+          <ul className='flex gap-2  text-black-900 text-sm '>
             <li>
               <Link to='/cart' className='hover:underline hover:text-black relative flex items-center p-1'>
 

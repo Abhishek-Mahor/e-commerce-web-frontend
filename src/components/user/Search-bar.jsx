@@ -32,7 +32,7 @@ const Searchbar = ({ className }) => {
   };
 
   return (
-    <form onSubmit={handleSearch} className='flex  shadow-sm rounded-full  bg-white overflow-hidden max-w-sm w-full'>
+    <form onSubmit={handleSearch} className='flex  shadow-2xl rounded-full  bg-white overflow-hidden max-w-sm w-full'>
       <input
         className={`${className} lg:w-80 lg:h-8 px-4 py-1.5 h-7  w-40 border-none focus:outline-none  text-base`}
         placeholder='    Search products...'

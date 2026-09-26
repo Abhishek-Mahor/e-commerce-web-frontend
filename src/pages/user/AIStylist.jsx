@@ -116,7 +116,7 @@ const AIStylist = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           {/* Form Panel */}
-          <div className="md:col-span-5 bg-white/90 backdrop-blur-md rounded-2xl border border-indigo-50/50 shadow-xl shadow-indigo-100/30 p-6">
+          <div className="md:col-span-5 bg-white/90 backdrop-blur-md rounded-2xl border border-indigo-50/50 shadow-xl  shadow-indigo-100/30 p-6">
             <h2 className="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-indigo-600">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 0 2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1-1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 5.043-.025m-11.362-3.2a15.998 15.998 0 0 1-3.2-5.043m11.362 3.2a15.997 15.997 0 0 0 .025-5.043m-9.619 9.62A15.997 15.997 0 0 1 6.57 9.53m11.362 3.2a15.998 15.998 0 0 0 1.622-3.395m0 0a15.998 15.998 0 0 0-3.388-1.62m3.388 1.62a15.997 15.997 0 0 1 3.2 5.043m-1.622-3.395a15.998 15.998 0 0 0-5.043-.025m-3.388-1.62a15.998 15.998 0 0 1-1.622-3.395m0 0a15.997 15.997 0 0 1 3.388-1.62m-3.388 1.62a15.998 15.998 0 0 0-3.2 5.043m5.01-11.712a1.5 1.5 0 1 1-3-.087 1.5 1.5 0 0 1 3 .087ZM11.89 13.711a9.01 9.01 0 0 1 3.388-1.62m-3.388 1.62a9.01 9.01 0 0 0-1.622-3.395m0 0a9.01 9.01 0 0 0-3.388-1.62m3.388 1.62a9.01 9.01 0 0 1 1.622-3.395m0 0a9.01 9.01 0 0 1 3.388-1.62m-3.388 1.62a9.01 9.01 0 0 0 1.622 3.395m0 0a9.01 9.01 0 0 0 3.388 1.62m-3.388-1.62a9.01 9.01 0 0 1-1.622 3.395Z" />

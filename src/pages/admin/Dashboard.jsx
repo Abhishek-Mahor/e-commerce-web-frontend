@@ -1,4 +1,5 @@
-import Dashboard_code from "./Dashbord-code";
+import React from "react";
+const Dashboard_code = React.lazy(()=> import('./Dashbord-code')); 
 
 function Dashboard() {
   const token = localStorage.getItem("adminToken");
