@@ -4,10 +4,10 @@ import { CartContext } from '../../context/CartContext'
 import Btn from '../common/Btn';
 
 const OrderSummary = () => {
+
   const { cart } = useContext(CartContext);
-
   const navigate = useNavigate();
-
+  
   const checkoutHandler = () => {
     navigate('/checkout');
   };
