@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CartContext } from '../context/CartContext'
-import Btn from './common/Btn';
+import { CartContext } from '../../context/CartContext'
+import Btn from '../common/Btn';
 
 const OrderSummary = () => {
   const { cart } = useContext(CartContext);

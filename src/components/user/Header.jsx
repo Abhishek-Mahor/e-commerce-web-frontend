@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import Searchbar from './Search-bar';
 import { Link, useNavigate } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
-import { AuthContext } from '../context/AuthContext';
+import { CartContext } from '../../context/CartContext';
+import { AuthContext } from '../../context/AuthContext';
 import Sidebar from './Sidebar';
-import Btn from './common/Btn';
+import Btn from '../common/Btn';
 
 
 const Header = React.memo(() => {

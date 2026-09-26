@@ -1,9 +1,9 @@
 ﻿import { useEffect, useState, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { AuthContext } from '../context/AuthContext'
-import { CartContext } from '../context/CartContext'
-import Header from '../components/Header'
+import { AuthContext } from '../../context/AuthContext'
+import { CartContext } from '../../context/CartContext'
+import Header from '../../components/user/Header'
 
 const ProductDetailed = () => {
 

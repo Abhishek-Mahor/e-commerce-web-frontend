@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import AdminProductsManager from '../components/AdminProductsManager'
+import AdminProductsManager from '../../components/admin/AdminProductsManager'
 
 const Dashboard = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;

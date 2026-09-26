@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react'
 import axios from 'axios'
-import Btn from './common/Btn';
+import Btn from '../common/Btn';
 
 const AdminProductsManager = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;

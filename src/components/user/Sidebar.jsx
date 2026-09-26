@@ -1,8 +1,8 @@
-import React from 'react'
+
 import { NavLink } from 'react-router-dom'
-import { AuthContext } from '../context/AuthContext'
+import { AuthContext } from '../../context/AuthContext'
 import { useContext } from 'react'
-import Btn from './common/Btn'
+import Btn from '../common/Btn'
 const Sidebar = () => {
 
   const logout = () => {

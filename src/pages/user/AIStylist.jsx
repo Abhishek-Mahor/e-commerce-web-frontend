@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import ProductCard from '../components/ProductCard';
+import Header from '../../components/user/Header';
+import Footer from '../../components/user/Footer';
+import ProductCard from '../../components/user/ProductCard';
 
 const AIStylist = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;

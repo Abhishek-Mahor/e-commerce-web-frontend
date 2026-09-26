@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../components/Header'
-import OrderSummary from '../components/OrderSummary'
-import CartProductCard from '../components/CartProductCard'
-import { CartContext } from '../context/CartContext'
+import Header from '../../components/user/Header'
+import OrderSummary from '../../components/user/OrderSummary'
+import CartProductCard from '../../components/user/CartProductCard'
+import { CartContext } from '../../context/CartContext'
 
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart, loading } = useContext(CartContext);

@@ -1,16 +1,16 @@
-import React from 'react'
+
 import { Routes, Route } from 'react-router-dom'
-import Home from '../pages/Home'
-import ProductDetailed from '../pages/ProductDetailed'
-import Cart from '../pages/Cart'
-import Signin from '../pages/Signin'
-import Signup from '../pages/Signup'
-import AdminLogin from '../pages/AdminLogin'
-import Dashboard from '../pages/Dashboard'
-import Checkout from '../pages/Checkout'
-import OrderSuccess from '../pages/OrderSuccess'
-import Orders from '../pages/Orders'
-import AIStylist from '../pages/AIStylist'
+import Home from '../pages/user/Home'
+import ProductDetailed from '../pages/user/ProductDetailed'
+import Cart from '../pages/user/Cart'
+import Signin from '../pages/user/Signin'
+import Signup from '../pages/user/Signup'
+import AdminLogin from '../pages/admin/AdminLogin'
+import Dashboard from '../pages/admin/Dashboard'
+import Checkout from '../pages/user/Checkout'
+import OrderSuccess from '../pages/user/OrderSuccess'
+import Orders from '../pages/user/Orders'
+import AIStylist from '../pages/user/AIStylist'
 
 const AppRoutes = () => {
   return (

@@ -1,9 +1,9 @@
 import  { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import Header from '../components/Header'
-import { CartContext } from '../context/CartContext'
-import { AuthContext } from '../context/AuthContext'
+import Header from '../../components/user/Header'
+import { CartContext } from '../../context/CartContext'
+import { AuthContext } from '../../context/AuthContext'
 
 const Checkout = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;
