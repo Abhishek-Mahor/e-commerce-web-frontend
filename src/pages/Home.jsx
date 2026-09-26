@@ -1,27 +1,35 @@
-import  { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Banner1 from '../components/Banner1';
 import ProductCard from '../components/ProductCard';
-import axios from 'axios';
 
 
 const Home = () => {
+
   const backend_url = import.meta.env.VITE_BACKEND_URL;
-  const [products, setProducts] = useState([]);
+
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const search = searchParams.get('search') || '';
 
   useEffect(() => {
     const loadProducts = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(`${backend_url}/api/products`);
         const data = response.data;
         setProducts(Array.isArray(data) ? data : []);
       } catch (error) {
         setProducts([]);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -56,21 +64,26 @@ const Home = () => {
       )}
 
       <div className="flex flex-wrap gap-4 justify-center mt-5">
-        {filteredProducts.map((item, index) => (
-          <ProductCard
-            key={item._id || index}
-            id={item._id}
-            name={item.name}
-            price={item.price}
-            description={`Color: ${item.color}`}
-            image={item.image}
-          />
-        ))}
-        {filteredProducts.length === 0 && (
-          <div className='text-center py-12'>
-            does not match your qeury
-
-          </div>
+        {loading ? (
+          <div className='text-center py-12 text-gray-500'>Loading products...</div>
+        ) : (
+          <>
+            {filteredProducts.map((item, index) => (
+              <ProductCard
+                key={item._id || index}
+                id={item._id}
+                name={item.name}
+                price={item.price}
+                description={`Color: ${item.color}`}
+                image={item.image}
+              />
+            ))}
+            {filteredProducts.length === 0 && (
+              <div className='text-center py-12'>
+                does not match your qeury
+              </div>
+            )}
+          </>
         )}
       </div>
 
