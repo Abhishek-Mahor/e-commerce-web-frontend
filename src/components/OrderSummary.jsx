@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
+import Btn from './common/Btn';
 
 const OrderSummary = () => {
   const { cart } = useContext(CartContext);
@@ -30,12 +31,12 @@ const OrderSummary = () => {
         </div>
       </div>
 
-      <button
-        onClick={checkoutHandler}
-        className='w-full py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-semibold text-center transition-colors duration-150 shadow-md cursor-pointer'
-      >
-        Proceed to Checkout
-      </button>
+      <Btn
+      onClick={checkoutHandler}
+      className={'w-full py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-semibold text-center transition-colors duration-150 shadow-md cursor-pointer'}
+      text={' Proceed to Checkout'}
+      />
+      
     </div>
   )
 }

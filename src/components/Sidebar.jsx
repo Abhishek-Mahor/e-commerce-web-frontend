@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import { useContext } from 'react'
+import Btn from './common/Btn'
 const Sidebar = () => {
 
   const logout = () => {
@@ -39,8 +40,13 @@ const Sidebar = () => {
           <NavLink to="/orders" className="text-gray-600 hover:text-gray-900 font-semibold hover:underline">Orders</NavLink>
         </nav>
       </div>
-      <button onClick={logout} className='bg-gray-500 text-white py-2 px-4 rounded cursor-pointer mt-20 absolute bottom-30  '>Logout</button>
 
+      <Btn
+      onClick={logout}
+      className={'bg-gray-500 text-white py-2 px-4 rounded cursor-pointer mt-20 absolute bottom-30 '}
+      text={'Logout'}
+      />
+      
     </div>
   )
 }

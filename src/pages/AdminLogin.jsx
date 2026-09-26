@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Btn from '../components/common/Btn'
 
 const AdminLogin = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;
@@ -47,7 +48,12 @@ const AdminLogin = () => {
         <input onChange={e => setPassword(e.target.value)} type='password' placeholder='Enter Password' className='border border-gray-300 rounded px-2 py-1' />
         <input onChange={e => setPasscode(e.target.value)} type='text' placeholder='Enter secret key' className='border border-gray-300 rounded px-2 py-1' />
 
-        <button onClick={loginHandler} className='bg-gray-600 hover:bg-gray-700 text-white rounded px-4 py-2'>Login</button>
+        <Btn
+        onClick={loginHandler}
+        className={'bg-gray-600 hover:bg-gray-700 text-white rounded px-4 py-2'}
+        text={'Login'}
+        />
+        
 
 
       </form>

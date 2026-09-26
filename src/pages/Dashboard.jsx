@@ -1,4 +1,3 @@
-import React from 'react'
 import Dashboard_code from "./Dashbord-code";
 
 function Dashboard() {

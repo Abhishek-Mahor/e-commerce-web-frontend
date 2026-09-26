@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import axios from 'axios'
+import Btn from './common/Btn';
 
 const AdminProductsManager = () => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;
@@ -152,12 +153,15 @@ const AdminProductsManager = () => {
           onChange={e => setSearchTerm(e.target.value)}
           className='w-full sm:w-80 border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black'
         />
-        <button
-          onClick={openAddModal}
-          className='w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-bold px-6 py-2.5 rounded-lg text-sm transition shadow-sm cursor-pointer'
-        >
-          + Add New Product
-        </button>
+       
+        <Btn
+        onClick={openAddModal}
+        className={'w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-bold px-6 py-2.5 rounded-lg text-sm transition shadow-sm cursor-pointer'}
+        text={'+ Add New Product'}
+        />
+         
+        
+       
       </div>
 
       {loading ? (
@@ -210,25 +214,25 @@ const AdminProductsManager = () => {
                       </td>
                       <td className='p-4 text-right'>
                         <div className='flex justify-end gap-3'>
-                          <button
-                            onClick={() => openEditModal(p)}
-                            className='p-1.5 border hover:bg-blue-50 text-blue-600 rounded-lg transition-colors cursor-pointer'
-                            title="Edit Product"
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4.5">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.83 20.013a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                            </svg>
-                          </button>
 
-                          <button
-                            onClick={() => handleDeleteProduct(p._id)}
-                            className='p-1.5 border hover:bg-red-50 text-red-600 rounded-lg transition-colors cursor-pointer'
-                            title="Delete Product"
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4.5">
+                          <Btn
+                          onClick={() => openEditModal(p)}
+                          className={'p-1.5 border hover:bg-blue-50 text-blue-600 rounded-lg transition-colors cursor-pointer'}
+                          text={ <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4.5">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.83 20.013a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                            </svg>}
+                          />
+
+                          <Btn
+                          onClick={() => handleDeleteProduct(p._id)}
+                          className={'p-1.5 border hover:bg-red-50 text-red-600 rounded-lg transition-colors cursor-pointer'}
+                          text={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4.5">
                               <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                            </svg>
-                          </button>
+                            </svg>}
+                          />
+                          
+
+                         
                         </div>
                       </td>
                     </tr>
@@ -248,14 +252,15 @@ const AdminProductsManager = () => {
               <h3 className='text-xl font-bold text-slate-800'>
                 {isEditing ? 'Edit Product Details' : 'Add New Product'}
               </h3>
-              <button
-                onClick={() => setShowModal(false)}
-                className='p-1 hover:bg-gray-100 rounded-lg cursor-pointer'
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
+
+              <Btn
+              onClick={() => setShowModal(false)}
+              className={'p-1 hover:bg-gray-100 rounded-lg cursor-pointer'}
+              text={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-              </button>
+                </svg>}
+              />
+              
             </div>
 
             {error && (
@@ -358,19 +363,17 @@ const AdminProductsManager = () => {
               </div>
 
               <div className='border-t pt-4 mt-2 flex gap-3 justify-end'>
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className='px-5 py-2.5 border rounded-lg text-sm font-bold text-gray-600 hover:bg-gray-50 transition cursor-pointer'
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className='px-6 py-2.5 bg-black hover:bg-gray-800 text-white font-bold rounded-lg text-sm transition shadow cursor-pointer'
-                >
-                  {isEditing ? 'Save Product' : 'Add Product'}
-                </button>
+                <Btn
+                onClick={() => setShowModal(false)}
+                className={'px-5 py-2.5 border rounded-lg text-sm font-bold text-gray-600 hover:bg-gray-50 transition cursor-pointer'}
+                text={'Cancel'}
+                />
+                
+                <Btn
+                className={'px-6 py-2.5 bg-black hover:bg-gray-800 text-white font-bold rounded-lg text-sm transition shadow cursor-pointer'}
+                text={isEditing ? 'Save Product' : 'Add Product'}
+                />
+                
               </div>
             </form>
 

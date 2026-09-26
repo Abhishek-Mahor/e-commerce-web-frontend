@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Btn from './common/Btn';
 
 const UserAddressForm = ({ onAddressUpdated }) => {
   const backend_url = import.meta.env.VITE_BACKEND_URL;
@@ -155,12 +156,12 @@ const UserAddressForm = ({ onAddressUpdated }) => {
           </div>
         </div>
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="mt-2 w-full py-3.5 bg-black hover:bg-gray-800 text-white rounded-xl font-bold text-sm shadow-md transition-all duration-150 cursor-pointer disabled:bg-gray-400 hover:shadow-lg active:scale-98 flex items-center justify-center gap-2"
-        >
-          {loading ? (
+       
+        <Btn 
+        type={'submit'}
+        disabled={loading}
+        className={"mt-2 w-full py-3.5 bg-black hover:bg-gray-800 text-white rounded-xl font-bold text-sm shadow-md transition-all duration-150 cursor-pointer disabled:bg-gray-400 hover:shadow-lg active:scale-98 flex items-center justify-center gap-2"}
+        text={loading ? (
             <>
               <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -170,8 +171,11 @@ const UserAddressForm = ({ onAddressUpdated }) => {
             </>
           ) : (
             "Save Address"
-          )}
-        </button>
+          )}/>
+         
+        
+          
+        
       </form>
     </div>
   )

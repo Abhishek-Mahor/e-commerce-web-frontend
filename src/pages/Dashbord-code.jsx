@@ -306,23 +306,6 @@ const Dashboard = () => {
 
     return (
       <svg className='w-full overflow-visible' viewBox={`0 0 ${chartWidth} ${chartHeight}`} height={chartHeight}>
-
-
-
-        {/* Shaded Area */}
-
-
-        {/* Spline Path */}
-
-
-        {/* Data points (interactive dots) */}
-
-
-
-        {/* X-axis Month Label */}
-
-
-
       </svg>
     );
   };
