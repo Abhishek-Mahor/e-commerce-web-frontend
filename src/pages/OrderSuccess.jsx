@@ -4,7 +4,7 @@ import axios from 'axios'
 import Header from '../components/Header'
 
 const OrderSuccess = () => {
-   const backend_url = import.meta.env.VITE_BACKEND_URL;
+  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const { orderId } = useParams();
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -72,7 +72,7 @@ const OrderSuccess = () => {
       <Header />
       <div className='max-w-3xl mx-auto px-4 py-12'>
         <div className='bg-white rounded-2xl shadow-sm border p-8 flex flex-col items-center text-center'>
-          
+
           <div className='w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6 animate-bounce shadow-inner'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="size-8">
               <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />

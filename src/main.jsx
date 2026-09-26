@@ -8,13 +8,13 @@ import { CartProvider } from './context/CartContext.jsx'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
- 
-   <BrowserRouter>
-     <AuthProvider>
-       <CartProvider>
-         <App/>
-       </CartProvider>
-     </AuthProvider>
-   </BrowserRouter>
- ,
+
+  <BrowserRouter>
+    <AuthProvider>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </AuthProvider>
+  </BrowserRouter>
+  ,
 )

@@ -4,12 +4,12 @@ import axios from 'axios'
 import AdminProductsManager from '../components/AdminProductsManager'
 
 const Dashboard = () => {
-   const backend_url = import.meta.env.VITE_BACKEND_URL;
+  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview'); // overview, orders, add_product
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  
+
   // Dashboard statistics
   const [stats, setStats] = useState({
     kpis: { totalSales: 0, totalOrders: 0, totalUsers: 0, totalProducts: 0, growthPercentage: 0 },
@@ -20,7 +20,7 @@ const Dashboard = () => {
   // Orders data
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
-  
+
   // High demanding products filters
   const [prodSearch, setProdSearch] = useState('');
   const [prodMinQty, setProdMinQty] = useState(0);
@@ -47,7 +47,7 @@ const Dashboard = () => {
     try {
       const base64Url = t.split('.')[1];
       const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+      const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
       }).join(''));
       return JSON.parse(jsonPayload);
@@ -75,7 +75,7 @@ const Dashboard = () => {
         axios.get(`${backend_url}/admin/stats`, getAuthHeaders()),
         axios.get(`${backend_url}/admin/orders`, getAuthHeaders())
       ]);
-      
+
       setStats(statsRes.data);
       setOrders(ordersRes.data);
     } catch (err) {
@@ -121,11 +121,11 @@ const Dashboard = () => {
       );
 
       alert('Order tracking details updated successfully!');
-      
+
       // Update local state
       setOrders(orders.map(o => o._id === selectedOrder._id ? response.data.order : o));
       setSelectedOrder(response.data.order);
-      
+
       // Refresh KPIs/charts if status changed to Delivered
       if (orderStatusVal === 'Delivered' || orderStatusVal === 'Cancelled') {
         const statsRes = await axios.get(`${backend_url}/admin/stats`, getAuthHeaders());
@@ -296,7 +296,7 @@ const Dashboard = () => {
     });
 
     const pathString = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
-    
+
     // Create fill path under line
     const fillPathString = `
       ${pathString} 
@@ -306,23 +306,23 @@ const Dashboard = () => {
 
     return (
       <svg className='w-full overflow-visible' viewBox={`0 0 ${chartWidth} ${chartHeight}`} height={chartHeight}>
-        
-       
+
+
 
         {/* Shaded Area */}
-       
+
 
         {/* Spline Path */}
-        
+
 
         {/* Data points (interactive dots) */}
-        
-           
 
-            {/* X-axis Month Label */}
-           
-         
-        
+
+
+        {/* X-axis Month Label */}
+
+
+
       </svg>
     );
   };
@@ -346,15 +346,15 @@ const Dashboard = () => {
   // FILTERS FOR USER ORDERS
   // ------------------------------
   const filteredOrders = orders.filter(o => {
-    const matchIdName = o._id.toLowerCase().includes(orderSearch.toLowerCase()) || 
-                        o.shippingAddress.name.toLowerCase().includes(orderSearch.toLowerCase());
+    const matchIdName = o._id.toLowerCase().includes(orderSearch.toLowerCase()) ||
+      o.shippingAddress.name.toLowerCase().includes(orderSearch.toLowerCase());
     const matchStatus = orderStatusFilter === 'All' || o.orderStatus === orderStatusFilter;
     return matchIdName && matchStatus;
   });
 
   return (
     <div className='min-h-screen bg-gray-50 flex flex-col md:flex-row'>
-      
+
       {/* Sidebar Navigation */}
       <div className='w-full md:w-64 bg-slate-900 text-white flex flex-col border-r border-slate-800'>
         <div className='p-6 border-b border-slate-800 flex items-center justify-between'>
@@ -362,11 +362,10 @@ const Dashboard = () => {
         </div>
 
         <nav className='flex-1 p-4 flex flex-col gap-2'>
-          <button 
-            onClick={() => { setActiveTab('overview'); setSelectedOrder(null); }} 
-            className={`w-full text-left py-3 px-4 rounded-xl text-sm font-semibold flex items-center gap-3 transition-colors ${
-              activeTab === 'overview' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
-            }`}
+          <button
+            onClick={() => { setActiveTab('overview'); setSelectedOrder(null); }}
+            className={`w-full text-left py-3 px-4 rounded-xl text-sm font-semibold flex items-center gap-3 transition-colors ${activeTab === 'overview' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+              }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
@@ -374,12 +373,11 @@ const Dashboard = () => {
             </svg>
             Overview & Stats
           </button>
-          
-          <button 
-            onClick={() => setActiveTab('orders')} 
-            className={`w-full text-left py-3 px-4 rounded-xl text-sm font-semibold flex items-center gap-3 transition-colors ${
-              activeTab === 'orders' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
-            }`}
+
+          <button
+            onClick={() => setActiveTab('orders')}
+            className={`w-full text-left py-3 px-4 rounded-xl text-sm font-semibold flex items-center gap-3 transition-colors ${activeTab === 'orders' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+              }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
@@ -387,11 +385,10 @@ const Dashboard = () => {
             Manage Orders
           </button>
 
-          <button 
-            onClick={() => { setActiveTab('add_product'); setSelectedOrder(null); }} 
-            className={`w-full text-left py-3 px-4 rounded-xl text-sm font-semibold flex items-center gap-3 transition-colors ${
-              activeTab === 'add_product' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
-            }`}
+          <button
+            onClick={() => { setActiveTab('add_product'); setSelectedOrder(null); }}
+            className={`w-full text-left py-3 px-4 rounded-xl text-sm font-semibold flex items-center gap-3 transition-colors ${activeTab === 'add_product' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+              }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -401,8 +398,8 @@ const Dashboard = () => {
         </nav>
 
         <div className='p-4 border-t border-slate-800'>
-          <button 
-            onClick={handleLogout} 
+          <button
+            onClick={handleLogout}
             className='w-full py-2.5 px-4 bg-slate-800 hover:bg-red-700 text-slate-300 hover:text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer'
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
@@ -415,7 +412,7 @@ const Dashboard = () => {
 
       {/* Main Content Area */}
       <div className='flex-1 overflow-y-auto max-h-screen p-8'>
-        
+
         {loading ? (
           <div className='text-center py-20'>
             <p className='text-lg text-gray-500'>Loading dashboard records...</p>
@@ -490,15 +487,15 @@ const Dashboard = () => {
 
                     {/* Filter controls */}
                     <div className='flex flex-wrap gap-2 text-xs'>
-                      <input 
-                        type="text" 
-                        placeholder="Search product..." 
-                        value={prodSearch} 
+                      <input
+                        type="text"
+                        placeholder="Search product..."
+                        value={prodSearch}
                         onChange={e => setProdSearch(e.target.value)}
                         className='border rounded-lg p-1.5 flex-1 focus:outline-none focus:ring-1 focus:ring-black'
                       />
-                      <select 
-                        value={prodSortBy} 
+                      <select
+                        value={prodSortBy}
                         onChange={e => setProdSortBy(e.target.value)}
                         className='border rounded-lg p-1.5 focus:outline-none focus:ring-1'
                       >
@@ -546,16 +543,15 @@ const Dashboard = () => {
                 </div>
 
                 <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>
-                  
+
                   {/* Left Side: Orders Table List */}
-                  <div className={`bg-white p-6 rounded-2xl border shadow-sm flex flex-col gap-4 ${
-                    selectedOrder ? 'lg:col-span-7' : 'lg:col-span-12'
-                  }`}>
+                  <div className={`bg-white p-6 rounded-2xl border shadow-sm flex flex-col gap-4 ${selectedOrder ? 'lg:col-span-7' : 'lg:col-span-12'
+                    }`}>
                     {/* Filters bar */}
                     <div className='flex flex-col sm:flex-row gap-3 justify-between'>
-                      <input 
-                        type="text" 
-                        placeholder="Search order ID or customer name..." 
+                      <input
+                        type="text"
+                        placeholder="Search order ID or customer name..."
                         value={orderSearch}
                         onChange={e => setOrderSearch(e.target.value)}
                         className='border rounded-xl p-2.5 text-sm flex-1 focus:outline-none focus:ring-2 focus:ring-black'
@@ -588,28 +584,26 @@ const Dashboard = () => {
                         </thead>
                         <tbody>
                           {filteredOrders.map((o) => (
-                            <tr 
-                              key={o._id} 
+                            <tr
+                              key={o._id}
                               onClick={() => setSelectedOrder(o)}
-                              className={`border-b last:border-0 hover:bg-slate-50 cursor-pointer transition ${
-                                selectedOrder?._id === o._id ? 'bg-blue-50/50' : ''
-                              }`}
+                              className={`border-b last:border-0 hover:bg-slate-50 cursor-pointer transition ${selectedOrder?._id === o._id ? 'bg-blue-50/50' : ''
+                                }`}
                             >
                               <td className='py-4 font-mono text-xs font-semibold text-slate-800 truncate max-w[30'>{o._id}</td>
                               <td className='py-4 font-medium text-slate-800'>{o.shippingAddress.name}</td>
                               <td className='py-4 font-bold text-slate-900'>₹{o.totalAmount}</td>
                               <td className='py-4'>
-                                <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${
-                                  o.orderStatus === 'Delivered' ? 'bg-green-100 text-green-700' :
+                                <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${o.orderStatus === 'Delivered' ? 'bg-green-100 text-green-700' :
                                   o.orderStatus === 'Shipped' ? 'bg-blue-100 text-blue-700' :
-                                  o.orderStatus === 'Cancelled' ? 'bg-red-100 text-red-700' :
-                                  'bg-yellow-100 text-yellow-700'
-                                }`}>
+                                    o.orderStatus === 'Cancelled' ? 'bg-red-100 text-red-700' :
+                                      'bg-yellow-100 text-yellow-700'
+                                  }`}>
                                   {o.orderStatus}
                                 </span>
                               </td>
                               <td className='py-4 text-right'>
-                                <button 
+                                <button
                                   onClick={(e) => { e.stopPropagation(); setSelectedOrder(o); }}
                                   className='text-blue-600 hover:text-blue-800 font-semibold text-xs cursor-pointer'
                                 >
@@ -633,14 +627,14 @@ const Dashboard = () => {
                   {/* Right Side: Order Detail Panel & Shipment Integration */}
                   {selectedOrder && (
                     <div className='lg:col-span-5 bg-white p-6 rounded-2xl border shadow-sm flex flex-col gap-6 animate-slideIn'>
-                      
+
                       <div className='flex justify-between items-center border-b pb-3'>
                         <div>
                           <h3 className='text-lg font-bold text-slate-800'>Order Details</h3>
                           <span className='font-mono text-xs text-gray-400'>ID: {selectedOrder._id}</span>
                         </div>
-                        <button 
-                          onClick={() => setSelectedOrder(null)} 
+                        <button
+                          onClick={() => setSelectedOrder(null)}
                           className='p-1 hover:bg-gray-100 rounded-lg cursor-pointer'
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
@@ -652,30 +646,28 @@ const Dashboard = () => {
                       {/* Delivery Status Progress Tracker pipeline */}
                       <div>
                         <h4 className='text-xs font-semibold text-gray-500 uppercase mb-3'>Delivery Tracking</h4>
-                        
+
                         <div className='flex items-center justify-between text-[10px] font-bold text-gray-400 relative mb-4'>
                           {/* Progress Line */}
                           <div className='absolute left-2 right-2 top-2 h-0.5 bg-gray-200 -z-10'>
-                            <div className={`h-full bg-green-500 transition-all duration-300 ${
-                              selectedOrder.orderStatus === 'Delivered' ? 'w-full' :
+                            <div className={`h-full bg-green-500 transition-all duration-300 ${selectedOrder.orderStatus === 'Delivered' ? 'w-full' :
                               selectedOrder.orderStatus === 'Shipped' ? 'w-2/3' :
-                              selectedOrder.orderStatus === 'Processing' ? 'w-1/3' : 'w-0'
-                            }`} />
+                                selectedOrder.orderStatus === 'Processing' ? 'w-1/3' : 'w-0'
+                              }`} />
                           </div>
-                          
+
                           {/* Step Nodes */}
                           {['Placed', 'Processing', 'Shipped', 'Delivered'].map((step, index) => {
-                            const isCompleted = 
-                              (index === 0) || 
+                            const isCompleted =
+                              (index === 0) ||
                               (index === 1 && ['Processing', 'Shipped', 'Delivered'].includes(selectedOrder.orderStatus)) ||
                               (index === 2 && ['Shipped', 'Delivered'].includes(selectedOrder.orderStatus)) ||
                               (index === 3 && selectedOrder.orderStatus === 'Delivered');
 
                             return (
                               <div key={step} className='flex flex-col items-center gap-1.5'>
-                                <div className={`w-4.5 h-4.5 rounded-full flex items-center justify-center border text-[9px] ${
-                                  isCompleted ? 'bg-green-500 border-green-500 text-white' : 'bg-white border-gray-300 text-gray-400'
-                                }`}>
+                                <div className={`w-4.5 h-4.5 rounded-full flex items-center justify-center border text-[9px] ${isCompleted ? 'bg-green-500 border-green-500 text-white' : 'bg-white border-gray-300 text-gray-400'
+                                  }`}>
                                   {isCompleted ? '✓' : index + 1}
                                 </div>
                                 <span className={isCompleted ? 'text-green-600 font-bold' : ''}>{step}</span>
@@ -688,7 +680,7 @@ const Dashboard = () => {
                       {/* Delivery Partner Integration Settings Form */}
                       <form onSubmit={handleUpdateDelivery} className='bg-gray-50 p-4 rounded-xl border border-dashed flex flex-col gap-4'>
                         <h4 className='text-xs font-bold text-slate-700 uppercase'>Assign Delivery Carrier</h4>
-                        
+
                         <div className='grid grid-cols-2 gap-3'>
                           <div>
                             <label className='block text-[10px] font-semibold text-gray-500 uppercase mb-1'>Delivery Partner</label>
@@ -706,8 +698,8 @@ const Dashboard = () => {
 
                           <div>
                             <label className='block text-[10px] font-semibold text-gray-500 uppercase mb-1'>Tracking Number</label>
-                            <input 
-                              type='text' 
+                            <input
+                              type='text'
                               placeholder='Tracking ID'
                               value={trackingNo}
                               onChange={e => setTrackingNo(e.target.value)}
@@ -731,7 +723,7 @@ const Dashboard = () => {
                               <option value="Cancelled">Cancelled</option>
                             </select>
                           </div>
-                          
+
                           <button
                             type='submit'
                             disabled={updatingDelivery}

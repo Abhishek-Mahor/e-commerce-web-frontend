@@ -29,12 +29,12 @@ const Header = React.memo(() => {
           <Searchbar />
         </div>
 
-       <nav className='lg:mt-5'>
-        <ul className='flex gap-5 mx-4 text-gray-600 text-sm font-semibold'>
-          <li><Link to='/' className='hover:underline hover:text-black transition'>Collection</Link></li>
-          <li><Link to='/ai-stylist' className='hover:underline hover:text-black transition'>AI Stylist</Link></li>
-        </ul>
-       </nav>
+        <nav className='lg:mt-5'>
+          <ul className='flex gap-5 mx-4 text-gray-600 text-sm font-semibold'>
+            <li><Link to='/' className='hover:underline hover:text-black transition'>Collection</Link></li>
+            <li><Link to='/ai-stylist' className='hover:underline hover:text-black transition'>AI Stylist</Link></li>
+          </ul>
+        </nav>
 
 
       </div>
@@ -46,7 +46,7 @@ const Header = React.memo(() => {
        </div> */}
 
       <div className=''>
-        
+
         <nav className='mr-3'>
           <ul className='flex gap-2  text-gray-600 text-sm '>
             <li><Link to='/cart' className='hover:underline hover:text-black relative flex items-center p-1'>

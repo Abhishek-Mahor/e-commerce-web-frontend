@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
   const value = React.useMemo(
     () => ({ user, setUser, isSidebarOpen, setIsSidebarOpen, toggleSidebar }),
-    [user,isSidebarOpen]
+    [user, isSidebarOpen]
   );
 
   return (

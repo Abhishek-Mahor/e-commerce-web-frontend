@@ -6,11 +6,11 @@ import { CartContext } from '../context/CartContext'
 import { AuthContext } from '../context/AuthContext'
 
 const Checkout = () => {
-   const backend_url = import.meta.env.VITE_BACKEND_URL;
+  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
   const { cart, fetchCart } = useContext(CartContext);
   const { user } = useContext(AuthContext);
-  
+
   const [shippingAddress, setShippingAddress] = useState({
     name: '',
     address: '',
@@ -19,11 +19,11 @@ const Checkout = () => {
     zipCode: '',
     phone: ''
   });
-  
+
   const [saveToProfile, setSaveToProfile] = useState(true);
   const [hasSavedAddress, setHasSavedAddress] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState('COD');
-  
+
   const [loading, setLoading] = useState(false);
   const [fetchingAddress, setFetchingAddress] = useState(false);
   const [error, setError] = useState('');
@@ -52,7 +52,7 @@ const Checkout = () => {
             Authorization: `Bearer ${token}`
           }
         });
-        
+
         if (response.data.address) {
           const addr = response.data.address;
           if (addr.address || addr.city || addr.state || addr.zipCode || addr.phone) {
@@ -109,7 +109,7 @@ const Checkout = () => {
   const handlePlaceOrder = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     const { name, address, city, state, zipCode, phone } = shippingAddress;
     if (!name || !address || !city || !state || !zipCode || !phone) {
       setError('Please fill in all shipping address fields.');
@@ -220,10 +220,10 @@ const Checkout = () => {
   return (
     <div className='min-h-screen bg-gray-50 pb-20'>
       <Header />
-      
+
       <div className='max-w-6xl mx-auto px-4 py-8 mt-4'>
         <h1 className='text-3xl font-black text-gray-900 mb-8 tracking-tight'>Secure Checkout</h1>
-        
+
         {error && (
           <div className='bg-red-50 text-red-600 text-sm font-semibold p-4 rounded-xl border border-red-100 mb-6 shadow-sm animate-shake'>
             {error}
@@ -231,10 +231,10 @@ const Checkout = () => {
         )}
 
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>
-          
+
           {/* LEFT: Shipping & Payment Form */}
           <form onSubmit={handlePlaceOrder} className='lg:col-span-7 flex flex-col gap-6'>
-            
+
             {/* Shipping Address Box */}
             <div className='bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-5'>
               <div className='flex items-center justify-between border-b pb-4'>
@@ -257,8 +257,8 @@ const Checkout = () => {
                 <div className='flex flex-col gap-4'>
                   <div className='flex flex-col gap-1.5'>
                     <label className='text-xs font-bold text-gray-500 uppercase tracking-wider'>Recipient's Full Name</label>
-                    <input 
-                      type='text' 
+                    <input
+                      type='text'
                       name='name'
                       value={shippingAddress.name}
                       onChange={handleInputChange}
@@ -270,8 +270,8 @@ const Checkout = () => {
 
                   <div className='flex flex-col gap-1.5'>
                     <label className='text-xs font-bold text-gray-500 uppercase tracking-wider'>Street Address</label>
-                    <input 
-                      type='text' 
+                    <input
+                      type='text'
                       name='address'
                       value={shippingAddress.address}
                       onChange={handleInputChange}
@@ -284,8 +284,8 @@ const Checkout = () => {
                   <div className='grid grid-cols-2 gap-4'>
                     <div className='flex flex-col gap-1.5'>
                       <label className='text-xs font-bold text-gray-500 uppercase tracking-wider'>City</label>
-                      <input 
-                        type='text' 
+                      <input
+                        type='text'
                         name='city'
                         value={shippingAddress.city}
                         onChange={handleInputChange}
@@ -297,8 +297,8 @@ const Checkout = () => {
 
                     <div className='flex flex-col gap-1.5'>
                       <label className='text-xs font-bold text-gray-500 uppercase tracking-wider'>State</label>
-                      <input 
-                        type='text' 
+                      <input
+                        type='text'
                         name='state'
                         value={shippingAddress.state}
                         onChange={handleInputChange}
@@ -312,8 +312,8 @@ const Checkout = () => {
                   <div className='grid grid-cols-2 gap-4'>
                     <div className='flex flex-col gap-1.5'>
                       <label className='text-xs font-bold text-gray-500 uppercase tracking-wider'>ZIP Code</label>
-                      <input 
-                        type='text' 
+                      <input
+                        type='text'
                         name='zipCode'
                         value={shippingAddress.zipCode}
                         onChange={handleInputChange}
@@ -325,8 +325,8 @@ const Checkout = () => {
 
                     <div className='flex flex-col gap-1.5'>
                       <label className='text-xs font-bold text-gray-500 uppercase tracking-wider'>Phone Number</label>
-                      <input 
-                        type='tel' 
+                      <input
+                        type='tel'
                         name='phone'
                         value={shippingAddress.phone}
                         onChange={handleInputChange}
@@ -339,8 +339,8 @@ const Checkout = () => {
 
                   {/* Save to profile checkbox */}
                   <div className='flex items-center gap-2.5 mt-2'>
-                    <input 
-                      type='checkbox' 
+                    <input
+                      type='checkbox'
                       id='saveToProfile'
                       checked={saveToProfile}
                       onChange={(e) => setSaveToProfile(e.target.checked)}
@@ -371,11 +371,10 @@ const Checkout = () => {
                     key={pm.id}
                     type='button'
                     onClick={() => setPaymentMethod(pm.id)}
-                    className={`p-4 border rounded-xl flex flex-col gap-1.5 text-left transition-all duration-200 cursor-pointer ${
-                      paymentMethod === pm.id 
-                        ? 'border-black bg-gray-50/50 ring-2 ring-black/5 font-bold' 
+                    className={`p-4 border rounded-xl flex flex-col gap-1.5 text-left transition-all duration-200 cursor-pointer ${paymentMethod === pm.id
+                        ? 'border-black bg-gray-50/50 ring-2 ring-black/5 font-bold'
                         : 'border-gray-200 hover:border-gray-300'
-                    }`}
+                      }`}
                   >
                     <span className='text-xs font-bold text-gray-800'>{pm.title}</span>
                     <span className='text-[10px] text-gray-400 font-semibold'>{pm.desc}</span>
@@ -394,9 +393,9 @@ const Checkout = () => {
             <div className='flex flex-col gap-4 max-h-72 overflow-y-auto pr-1'>
               {cart.items.map((item, index) => (
                 <div key={index} className='flex gap-3 items-center border-b border-gray-50 pb-3 last:border-b-0 last:pb-0'>
-                  <img 
-                    src={item.image || 'https://via.placeholder.com/60'} 
-                    alt={item.productName} 
+                  <img
+                    src={item.image || 'https://via.placeholder.com/60'}
+                    alt={item.productName}
                     className='w-12 h-12 object-cover rounded-lg border bg-gray-50'
                   />
                   <div className='flex-1 min-w-0'>

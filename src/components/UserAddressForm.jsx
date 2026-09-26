@@ -10,7 +10,7 @@ const UserAddressForm = ({ onAddressUpdated }) => {
     address: "",
     phone: ""
   });
-  
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -26,7 +26,7 @@ const UserAddressForm = ({ onAddressUpdated }) => {
     if (error) setError("");
     if (success) setSuccess("");
   };
-    
+
   const Address = async (e) => {
     e.preventDefault();
     if (!state || !city || !zipCode || !address || !phone) {
@@ -49,7 +49,7 @@ const UserAddressForm = ({ onAddressUpdated }) => {
           }
         }
       );
-      
+
       setSuccess("Address saved successfully!");
       setForm({
         state: "",
@@ -73,7 +73,7 @@ const UserAddressForm = ({ onAddressUpdated }) => {
   return (
     <div className="w-full max-w-md mx-auto bg-white p-6 rounded-2xl border border-gray-100 shadow-lg transition-all duration-300">
       <h2 className="text-xl font-bold text-gray-800 mb-5 text-center">Add Shipping Address</h2>
-      
+
       <form onSubmit={Address} className="flex flex-col gap-4">
         {error && (
           <div className="bg-red-50 text-red-600 text-xs font-semibold p-3 rounded-lg border border-red-100">
@@ -88,13 +88,13 @@ const UserAddressForm = ({ onAddressUpdated }) => {
 
         <div className="flex flex-col gap-1.5">
           <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Street Address</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="address"
-            value={address} 
+            value={address}
             onChange={handle}
-            className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200" 
-            placeholder="House / Apartment no, street name" 
+            className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200"
+            placeholder="House / Apartment no, street name"
             required
           />
         </div>
@@ -102,26 +102,26 @@ const UserAddressForm = ({ onAddressUpdated }) => {
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
             <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">City</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="city"
-              value={city} 
+              value={city}
               onChange={handle}
-              className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200" 
-              placeholder="e.g. Mumbai" 
+              className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200"
+              placeholder="e.g. Mumbai"
               required
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">State</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="state"
-              value={state} 
+              value={state}
               onChange={handle}
-              className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200" 
-              placeholder="e.g. Maharashtra" 
+              className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200"
+              placeholder="e.g. Maharashtra"
               required
             />
           </div>
@@ -130,33 +130,33 @@ const UserAddressForm = ({ onAddressUpdated }) => {
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
             <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Zip Code</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="zipCode"
-              value={zipCode} 
+              value={zipCode}
               onChange={handle}
-              className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200" 
-              placeholder="e.g. 400001" 
+              className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200"
+              placeholder="e.g. 400001"
               required
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Phone</label>
-            <input 
-              type="tel" 
+            <input
+              type="tel"
               name="phone"
-              value={phone} 
+              value={phone}
               onChange={handle}
-              className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200" 
-              placeholder="10-digit mobile number" 
+              className="border border-gray-200 focus:border-black focus:ring-2 focus:ring-black/5 p-3 rounded-xl w-full text-sm outline-none transition-all duration-200"
+              placeholder="10-digit mobile number"
               required
             />
           </div>
         </div>
 
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           disabled={loading}
           className="mt-2 w-full py-3.5 bg-black hover:bg-gray-800 text-white rounded-xl font-bold text-sm shadow-md transition-all duration-150 cursor-pointer disabled:bg-gray-400 hover:shadow-lg active:scale-98 flex items-center justify-center gap-2"
         >

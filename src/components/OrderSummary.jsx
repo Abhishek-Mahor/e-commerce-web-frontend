@@ -14,7 +14,7 @@ const OrderSummary = () => {
   return (
     <div className='w-full md:w-80 bg-gray-50 border rounded-lg p-6 shadow-sm flex flex-col gap-6'>
       <h2 className='text-xl font-bold text-gray-800 border-b pb-3'>Order Summary</h2>
-      
+
       <div className='flex flex-col gap-4'>
         <div className='flex justify-between text-gray-600'>
           <span>Subtotal</span>
@@ -30,8 +30,8 @@ const OrderSummary = () => {
         </div>
       </div>
 
-      <button 
-        onClick={checkoutHandler} 
+      <button
+        onClick={checkoutHandler}
         className='w-full py-3 bg-black hover:bg-gray-800 text-white rounded-lg font-semibold text-center transition-colors duration-150 shadow-md cursor-pointer'
       >
         Proceed to Checkout

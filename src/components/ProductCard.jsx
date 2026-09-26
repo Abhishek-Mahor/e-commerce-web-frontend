@@ -15,7 +15,7 @@ const ProductCard = React.memo(({ id, name, price, description, image }) => {
       className='w-45 h-70 bg-white flex flex-col items-center cursor-pointer gap-2 hover:shadow-lg transition-shadow'
     >
       <div className="w-40 h-45 bg-gray-400 mt-3">
-        <img className='contain-fit w-40 h-45' src={image} alt={name}  />
+        <img className='contain-fit w-40 h-45' src={image} alt={name} />
       </div>
       <div className=''>
         <h3 className='text-lg font-bold'>{name}</h3>

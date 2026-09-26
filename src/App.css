@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 body {
-  background-color: #F8F9FC;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #1E293B;
+  background-color: #f8f9fc;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #1e293b;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom styles for luxury appearance */
 .font-serif-luxury {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }

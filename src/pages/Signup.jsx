@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Signup = () => {
-   const backend_url = import.meta.env.VITE_BACKEND_URL;
+  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate()
   const [message, setMessage] = useState('')
 
@@ -12,7 +12,7 @@ const Signup = () => {
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData.entries())
     console.log(data)
-    
+
     try {
       const response = await axios.post(`${backend_url}/api/auth/signup`, data)
       setMessage(response.data.message)
@@ -25,10 +25,10 @@ const Signup = () => {
   }
 
   return (
-    
+
     <div className=' flex justify-center mt-20 ' >
-      
-      <form onSubmit={handleSubmit}  className="contener h-100 w-100 border rounded-lg gap-2 shadow flex flex-col justify-center items-center p-8">
+
+      <form onSubmit={handleSubmit} className="contener h-100 w-100 border rounded-lg gap-2 shadow flex flex-col justify-center items-center p-8">
 
         {message && <p className="text-red-500">{message}</p>}
 

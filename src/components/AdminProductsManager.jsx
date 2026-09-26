@@ -143,11 +143,11 @@ const AdminProductsManager = () => {
 
   return (
     <div className='flex flex-col gap-6'>
-      
+
       <div className='flex flex-col sm:flex-row justify-between items-center gap-4 bg-white p-4 rounded-xl border shadow-sm'>
-        <input 
-          type="text" 
-          placeholder="Search catalog products..." 
+        <input
+          type="text"
+          placeholder="Search catalog products..."
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
           className='w-full sm:w-80 border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black'
@@ -188,9 +188,9 @@ const AdminProductsManager = () => {
                   return (
                     <tr key={p._id} className='border-b last:border-0 hover:bg-slate-50 transition-colors'>
                       <td className='p-4'>
-                        <img 
-                          src={p.image || 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=100'} 
-                          alt={p.name} 
+                        <img
+                          src={p.image || 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=100'}
+                          alt={p.name}
                           className='w-12 h-16 object-cover rounded bg-gray-100 border'
                         />
                       </td>
@@ -203,9 +203,8 @@ const AdminProductsManager = () => {
                         Size: <span className='font-bold'>{p.size}</span> | Color: <span className='font-bold'>{p.color}</span>
                       </td>
                       <td className='p-4 text-center'>
-                        <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${
-                          isLowStock ? 'bg-red-100 text-red-700 font-bold animate-pulse' : 'bg-green-100 text-green-700'
-                        }`}>
+                        <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${isLowStock ? 'bg-red-100 text-red-700 font-bold animate-pulse' : 'bg-green-100 text-green-700'
+                          }`}>
                           {p.stock} {isLowStock ? 'Low Stock' : 'In Stock'}
                         </span>
                       </td>
@@ -220,7 +219,7 @@ const AdminProductsManager = () => {
                               <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.83 20.013a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                             </svg>
                           </button>
-                          
+
                           <button
                             onClick={() => handleDeleteProduct(p._id)}
                             className='p-1.5 border hover:bg-red-50 text-red-600 rounded-lg transition-colors cursor-pointer'
@@ -244,12 +243,12 @@ const AdminProductsManager = () => {
       {showModal && (
         <div className='fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex justify-center items-center p-4 z-50 animate-fadeIn'>
           <div className='bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl border animate-scaleIn flex flex-col max-h-[90vh]'>
-            
+
             <div className='flex justify-between items-center border-b pb-3 mb-4'>
               <h3 className='text-xl font-bold text-slate-800'>
                 {isEditing ? 'Edit Product Details' : 'Add New Product'}
               </h3>
-              <button 
+              <button
                 onClick={() => setShowModal(false)}
                 className='p-1 hover:bg-gray-100 rounded-lg cursor-pointer'
               >
@@ -269,8 +268,8 @@ const AdminProductsManager = () => {
               <div className='grid grid-cols-2 gap-4'>
                 <div className='col-span-2'>
                   <label className='block text-xs font-bold text-gray-500 uppercase mb-1'>Product Name *</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
@@ -282,8 +281,8 @@ const AdminProductsManager = () => {
 
                 <div>
                   <label className='block text-xs font-bold text-gray-500 uppercase mb-1'>Price (₹) *</label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     name="price"
                     value={formData.price}
                     onChange={handleInputChange}
@@ -295,8 +294,8 @@ const AdminProductsManager = () => {
 
                 <div>
                   <label className='block text-xs font-bold text-gray-500 uppercase mb-1'>Stock Quantity *</label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     name="stock"
                     value={formData.stock}
                     onChange={handleInputChange}
@@ -308,8 +307,8 @@ const AdminProductsManager = () => {
 
                 <div>
                   <label className='block text-xs font-bold text-gray-500 uppercase mb-1'>Size (e.g. S, M, L) *</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="size"
                     value={formData.size}
                     onChange={handleInputChange}
@@ -321,8 +320,8 @@ const AdminProductsManager = () => {
 
                 <div>
                   <label className='block text-xs font-bold text-gray-500 uppercase mb-1'>Color *</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="color"
                     value={formData.color}
                     onChange={handleInputChange}
@@ -334,8 +333,8 @@ const AdminProductsManager = () => {
 
                 <div className='col-span-2'>
                   <label className='block text-xs font-bold text-gray-500 uppercase mb-1'>Image URL</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="image"
                     value={formData.image}
                     onChange={handleInputChange}
@@ -346,7 +345,7 @@ const AdminProductsManager = () => {
 
                 <div className='col-span-2'>
                   <label className='block text-xs font-bold text-gray-500 uppercase mb-1'>Description *</label>
-                  <textarea 
+                  <textarea
                     name="description"
                     value={formData.description}
                     onChange={handleInputChange}

@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 
 const AIStylist = () => {
-   const backend_url = import.meta.env.VITE_BACKEND_URL;
+  const backend_url = import.meta.env.VITE_BACKEND_URL;
   const [occasion, setOccasion] = useState('');
   const [weather, setWeather] = useState('');
   const [suggestion, setSuggestion] = useState('');
@@ -53,7 +53,7 @@ const AIStylist = () => {
     return text.split('\n').map((line, index) => {
       let content = line.trim();
       if (!content) return <div key={index} className="h-2" />;
-      
+
       // Headers
       if (content.startsWith('###')) {
         return (
@@ -82,16 +82,16 @@ const AIStylist = () => {
       if (content.startsWith('-') || content.startsWith('*')) {
         const formatted = content.substring(1).trim().replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         return (
-          <li key={index} className="ml-4 list-disc text-gray-700 my-1.5 leading-relaxed text-sm" 
-              dangerouslySetInnerHTML={{ __html: formatted }} />
+          <li key={index} className="ml-4 list-disc text-gray-700 my-1.5 leading-relaxed text-sm"
+            dangerouslySetInnerHTML={{ __html: formatted }} />
         );
       }
 
       // Normal paragraphs
       const formatted = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
       return (
-        <p key={index} className="text-gray-700 my-2 leading-relaxed text-sm" 
-           dangerouslySetInnerHTML={{ __html: formatted }} />
+        <p key={index} className="text-gray-700 my-2 leading-relaxed text-sm"
+          dangerouslySetInnerHTML={{ __html: formatted }} />
       );
     });
   };
@@ -189,11 +189,10 @@ const AIStylist = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-3 rounded-xl text-sm font-semibold text-white shadow-lg transition-all ${
-                  loading
+                className={`w-full py-3 rounded-xl text-sm font-semibold text-white shadow-lg transition-all ${loading
                     ? 'bg-indigo-400 cursor-not-allowed'
                     : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-indigo-500/20 active:scale-[0.98] cursor-pointer'
-                }`}
+                  }`}
               >
                 {loading ? (
                   <div className="flex items-center justify-center gap-2">

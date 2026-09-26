@@ -25,8 +25,8 @@ const Cart = () => {
             </svg>
             <h2 className='text-xl font-bold text-gray-800 mb-2'>Your bag is empty</h2>
             <p className='text-gray-500 mb-6'>Looks like you haven't added anything to your cart yet.</p>
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className='inline-block bg-black hover:bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-150'
             >
               Start Shopping

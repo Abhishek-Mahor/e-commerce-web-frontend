@@ -14,22 +14,22 @@ import AIStylist from '../pages/AIStylist'
 
 const AppRoutes = () => {
   return (
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/product/:id' element={<ProductDetailed />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/signin' element={<Signin />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/checkout' element={<Checkout />} />
-        <Route path='/order-success/:orderId' element={<OrderSuccess />} />
-        <Route path='/orders' element={<Orders />} />
-        <Route path='/ai-stylist' element={<AIStylist />} />
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/product/:id' element={<ProductDetailed />} />
+      <Route path='/cart' element={<Cart />} />
+      <Route path='/signin' element={<Signin />} />
+      <Route path='/signup' element={<Signup />} />
+      <Route path='/checkout' element={<Checkout />} />
+      <Route path='/order-success/:orderId' element={<OrderSuccess />} />
+      <Route path='/orders' element={<Orders />} />
+      <Route path='/ai-stylist' element={<AIStylist />} />
 
 
-        {/* Admin routes */}
-        <Route path='/admin/login' element={<AdminLogin />} />
-        <Route path='/admin/dashboard' element={<Dashboard />} />
-      </Routes>
+      {/* Admin routes */}
+      <Route path='/admin/login' element={<AdminLogin />} />
+      <Route path='/admin/dashboard' element={<Dashboard />} />
+    </Routes>
   )
 }
 
