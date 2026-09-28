@@ -49,7 +49,8 @@ const Home = () => {
       <Header />
       <Banner
        imagesrc={bannerImage}
-       classname={'h-150 shadow overflow-hidden'}
+       imageClass={''}
+       classname={'max-h-45 lg:max-h-130  shadow overflow-hidden'}
        textclassName={'text-white font-fancy text-3xl ml-5 mt-10'} />
 
       {search && (

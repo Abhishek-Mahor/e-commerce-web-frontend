@@ -1,18 +1,11 @@
 
 
 
-const Banner = ({ classname = '', imagesrc = '', textclassName = '', text = '' }) => {
+const Banner = ({ classname = '', imagesrc = '',imageClass='', textclassName = '', text = '' }) => {
   return (
     <div
       className={`w-full overflow-hidden border border-none ${classname}`}
-      style={{
-        backgroundImage: imagesrc ? `url(${imagesrc})` : 'none',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '380px',
-      }}
-    >
+    > <img src={imagesrc} alt="" className={imageClass} />
       <h1 className={textclassName}>{text}</h1>
     </div>
   )
